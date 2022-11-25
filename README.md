@@ -1,20 +1,17 @@
+## React Native Yandex Maps Lite (Яндекс Карты) 
 
-## React Native Yandex Maps (Яндекс Карты)
+Библиотека для интеграции Yandex Maps Lite (Яндекс Карт) в React Native.
 
-Библиотека для интеграции Yandex Maps (Яндекс Карт) в React Native.
-
-## Пример
-
-[Пример использования библиотеки](https://github.com/ownikss/rn-yamaps-example)
+Оригинальная библиотека: https://github.com/volga-volga/react-native-yamap
 
 ## Установка
 
 ```
-yarn add react-native-yamap
+yarn add https://gitlab.com/getgain-public/libs/react-native-yamap-lite.git
 ```
 или
 ```
-npm i react-native-yamap --save
+npm i https://gitlab.com/getgain-public/libs/react-native-yamap-lite.git --save
 ```
 
 ### Линковка
