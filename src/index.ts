@@ -6,7 +6,5 @@ export * from './components/Circle';
 export * from './components/ClusteredYamap';
 export * from './geocoding';
 export * from './interfaces';
-export * from './Suggest';
 
-export { default as Suggest } from './Suggest';
 export { YaMap as default } from './components/Yamap';

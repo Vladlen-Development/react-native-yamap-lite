@@ -71,7 +71,7 @@ public class YamapViewManager extends ViewGroupManager<YamapView> {
         Map<String, Integer> map = MapBuilder.newHashMap();
         map.put("setCenter", SET_CENTER);
         map.put("fitAllMarkers", FIT_ALL_MARKERS);
-        map.put("findRoutes", FIND_ROUTES);
+//        map.put("findRoutes", FIND_ROUTES);
         map.put("setZoom", SET_ZOOM);
         map.put("getCameraPosition", GET_CAMERA_POSITION);
         map.put("getVisibleRegion", GET_VISIBLE_REGION);
@@ -106,11 +106,11 @@ public class YamapViewManager extends ViewGroupManager<YamapView> {
                     }
                     break;
 
-                case "findRoutes":
-                    if (args != null) {
-                        findRoutes(view, args.getArray(0), args.getArray(1), args.getString(2));
-                    }
-                    break;
+//                case "findRoutes":
+//                    if (args != null) {
+//                        findRoutes(view, args.getArray(0), args.getArray(1), args.getString(2));
+//                    }
+//                    break;
 
                 case "setZoom":
                     if (args != null) {
@@ -129,11 +129,12 @@ public class YamapViewManager extends ViewGroupManager<YamapView> {
                         view.emitVisibleRegionToJS(args.getString(0));
                     }
                     break;
-            case "setTrafficVisible":
-                if (args != null) {
-                    view.setTrafficVisible(args.getBoolean(0));
-                }
-                break;
+
+                case "setTrafficVisible":
+                    if (args != null) {
+                        view.setTrafficVisible(args.getBoolean(0));
+                    }
+                    break;
 
                 case "getScreenPoints":
                     if (args != null) {
@@ -196,28 +197,28 @@ public class YamapViewManager extends ViewGroupManager<YamapView> {
         }
     }
 
-    private void findRoutes(View view, ReadableArray jsPoints, ReadableArray jsVehicles, String id) {
-        if (jsPoints != null) {
-            ArrayList<Point> points = new ArrayList<>();
-
-            for (int i = 0; i < jsPoints.size(); ++i) {
-                ReadableMap point = jsPoints.getMap(i);
-                if (point != null) {
-                    points.add(new Point(point.getDouble("lat"), point.getDouble("lon")));
-                }
-            }
-
-            ArrayList<String> vehicles = new ArrayList<>();
-
-            if (jsVehicles != null) {
-                for (int i = 0; i < jsVehicles.size(); ++i) {
-                    vehicles.add(jsVehicles.getString(i));
-                }
-            }
-
-            castToYaMapView(view).findRoutes(points, vehicles, id);
-        }
-    }
+//    private void findRoutes(View view, ReadableArray jsPoints, ReadableArray jsVehicles, String id) {
+//        if (jsPoints != null) {
+//            ArrayList<Point> points = new ArrayList<>();
+//
+//            for (int i = 0; i < jsPoints.size(); ++i) {
+//                ReadableMap point = jsPoints.getMap(i);
+//                if (point != null) {
+//                    points.add(new Point(point.getDouble("lat"), point.getDouble("lon")));
+//                }
+//            }
+//
+//            ArrayList<String> vehicles = new ArrayList<>();
+//
+//            if (jsVehicles != null) {
+//                for (int i = 0; i < jsVehicles.size(); ++i) {
+//                    vehicles.add(jsVehicles.getString(i));
+//                }
+//            }
+//
+//            castToYaMapView(view).findRoutes(points, vehicles, id);
+//        }
+//    }
 
     // PROPS
     @ReactProp(name = "userLocationIcon")
@@ -227,9 +228,14 @@ public class YamapViewManager extends ViewGroupManager<YamapView> {
         }
     }
 
-    @ReactProp(name = "userLocationIconScale")
-    public void setUserLocationIconScale(View view, float scale) {
-        castToYaMapView(view).setUserLocationIconScale(scale);
+    @ReactProp(name = "withClusters")
+    public void setClusters(View view, Boolean with) {
+        castToYaMapView(view).setClusters(with);
+    }
+
+    @ReactProp(name = "clusterColor")
+    public void setClusterColor(View view, int color) {
+        castToYaMapView(view).setClustersColor(color);
     }
 
     @ReactProp(name = "userLocationAccuracyFillColor")
@@ -311,13 +317,6 @@ public class YamapViewManager extends ViewGroupManager<YamapView> {
     @ReactProp(name = "interactive")
     public void setInteractive(View view, boolean interactive) {
         castToYaMapView(view).setInteractive(interactive);
-    }
-
-    @ReactProp(name = "logoPosition")
-    public void setLogoPosition(View view, ReadableMap params) {
-        if (params != null) {
-            castToYaMapView(view).setLogoPosition(params);
-        }
     }
 
     @Override
