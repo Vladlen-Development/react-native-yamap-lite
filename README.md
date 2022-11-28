@@ -55,6 +55,7 @@ YaMap.init('API_KEY');
 
   [YMKMapKit setLocale:@"ru_RU"];
   [YMKMapKit setApiKey:@"API_KEY"];
+  [YMKMapKit mapKit];
 
   return YES;
 }
