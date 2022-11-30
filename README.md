@@ -4,9 +4,9 @@
 
 Оригинальная библиотека: https://github.com/volga-volga/react-native-yamap
 
-iOS: full версия (в lite версии отображается только фиксированный регион карты, не нашли как это исправить)
+iOS: 4.2.2-lite
 
-Android: lite версия
+Android: 4.1.0-lite
 
 ## Установка
 
