@@ -1,14 +1,14 @@
 {
   "name": "react-native-yamap-lite",
-  "version": "4.1.15",
-  "description": "Yandex.MapKit and Yandex.Geocoder for react-native",
+  "version": "1.0.0",
+  "description": "Lite version of Yandex Map library",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
     "prepublishOnly": "rm -rf build && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://gitlab.com/getgain-public/libs/react-native-yamap-lite",
+  "homepage": "https://github.com/Vladlen-Libraries/react-native-yamap-lite",
   "keywords": [
     "react-native",
     "mapkit",
@@ -24,7 +24,7 @@
     "yandexmaps",
     "geocoder"
   ],
-  "author": "Nikita Sirotkin",
+  "author": "Vladlen Kaveev",
   "license": "",
   "dependencies": {},
   "devDependencies": {

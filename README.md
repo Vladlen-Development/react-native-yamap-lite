@@ -1,4 +1,6 @@
-## React Native Yandex Maps Lite (Яндекс Карты) 
+## react-native-yamap-lite 
+
+## Облегченная Lite библиотека для интеграции Яндекс Карт
 
 Библиотека для интеграции Yandex Maps Lite (Яндекс Карт) в React Native.
 
@@ -11,11 +13,11 @@ Android: 4.1.0-lite
 ## Установка
 
 ```
-yarn add https://gitlab.com/getgain-public/libs/react-native-yamap-lite.git
+yarn add react-native-yamap-lite
 ```
 или
 ```
-npm i https://gitlab.com/getgain-public/libs/react-native-yamap-lite.git --save
+npm i react-native-yamap-lite --save
 ```
 
 ### Линковка
@@ -37,7 +39,7 @@ react-native link react-native-yamap
 Для этого лучше всего зайти в корневой файл приложения, например `App.js`, и добавить инициализацию:
 
 ```js
-import YaMap from 'react-native-yamap';
+import YaMap from 'react-native-yamap-lite';
 
 YaMap.init('API_KEY');
 ```
@@ -68,7 +70,7 @@ YaMap.init('API_KEY');
 ### Изменение языка карт
 
 ```js
-import YaMap from 'react-native-yamap';
+import YaMap from 'react-native-yamap-lite';
 
 const currentLocale = await YaMap.getLocale();
 YaMap.setLocale('en_US');  // 'ru_RU' или другие
@@ -92,7 +94,7 @@ YaMap.resetLocale();
 
 ```jsx
 import React from 'react';
-import YaMap from 'react-native-yamap';
+import YaMap from 'react-native-yamap-lite';
 
 const Map = () => {
   return (
@@ -282,7 +284,7 @@ type YandexLogo = {
 ### Marker
 
 ```jsx
-import { Marker } from 'react-native-yamap';
+import { Marker } from 'react-native-yamap-lite';
 
 <YaMap>
   <Marker point={{ lat: 50, lon: 50 }}/>
@@ -310,7 +312,7 @@ import { Marker } from 'react-native-yamap';
 ### Circle
 
 ```jsx
-import { Circle } from 'react-native-yamap';
+import { Circle } from 'react-native-yamap-lite';
 
 <YaMap>
   <Circle center={{ lat: 50, lon: 50 }} radius={300} />
@@ -332,7 +334,7 @@ import { Circle } from 'react-native-yamap';
 ### Polyline
 
 ```jsx
-import { Polyline } from 'react-native-yamap';
+import { Polyline } from 'react-native-yamap-lite';
 
 <YaMap>
   <Polyline
@@ -363,7 +365,7 @@ import { Polyline } from 'react-native-yamap';
 ### Polygon
 
 ```jsx
-import { Polygon } from 'react-native-yamap';
+import { Polygon } from 'react-native-yamap-lite';
 
 <YaMap>
   <Polygon
@@ -423,7 +425,7 @@ findDrivingRoutes(points: Point[], callback: (event: RoutesFoundEvent) => void):
 ### Инициализация
 
 ```typescript
-import { Geocoder } from 'react-native-yamap';
+import { Geocoder } from 'react-native-yamap-lite';
 
 Geocoder.init('API_KEY');
 ```
@@ -483,7 +485,7 @@ Geocoder.addressToGeo(address: string);
 
 ```typescript
 
-import { Suggest } from 'react-native-yamap';
+import { Suggest } from 'react-native-yamap-lite';
 
 const find = async (query: string, options?: SuggestOptions) => {
   const suggestions = await Suggest.suggest(query, options);
