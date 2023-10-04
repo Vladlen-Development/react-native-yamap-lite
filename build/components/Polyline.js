@@ -33,7 +33,7 @@ exports.Polyline = void 0;
 var react_1 = __importDefault(require("react"));
 var react_native_1 = require("react-native");
 var utils_1 = require("../utils");
-var NativePolylineComponent = react_native_1.requireNativeComponent('YamapPolyline');
+var NativePolylineComponent = (0, react_native_1.requireNativeComponent)('YamapPolyline');
 var Polyline = /** @class */ (function (_super) {
     __extends(Polyline, _super);
     function Polyline() {
@@ -41,9 +41,9 @@ var Polyline = /** @class */ (function (_super) {
     }
     Polyline.prototype.render = function () {
         var props = __assign({}, this.props);
-        utils_1.processColorProps(props, 'fillColor');
-        utils_1.processColorProps(props, 'strokeColor');
-        utils_1.processColorProps(props, 'outlineColor');
+        (0, utils_1.processColorProps)(props, 'fillColor');
+        (0, utils_1.processColorProps)(props, 'strokeColor');
+        (0, utils_1.processColorProps)(props, 'outlineColor');
         return react_1.default.createElement(NativePolylineComponent, __assign({}, props));
     };
     return Polyline;

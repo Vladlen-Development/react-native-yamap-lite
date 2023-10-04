@@ -33,16 +33,16 @@ exports.Polygon = void 0;
 var react_1 = __importDefault(require("react"));
 var react_native_1 = require("react-native");
 var utils_1 = require("../utils");
-var NativePolygonComponent = react_native_1.requireNativeComponent('YamapPolygon');
-var Polygon = /** @class */ (function (_super) {
+var NativePolygonComponent = (0, react_native_1.requireNativeComponent)('YamapPolygon');
+var Polygon = exports.Polygon = /** @class */ (function (_super) {
     __extends(Polygon, _super);
     function Polygon() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Polygon.prototype.render = function () {
         var props = __assign({}, this.props);
-        utils_1.processColorProps(props, 'fillColor');
-        utils_1.processColorProps(props, 'strokeColor');
+        (0, utils_1.processColorProps)(props, 'fillColor');
+        (0, utils_1.processColorProps)(props, 'strokeColor');
         return react_1.default.createElement(NativePolygonComponent, __assign({}, props));
     };
     Polygon.defaultProps = {
@@ -50,5 +50,4 @@ var Polygon = /** @class */ (function (_super) {
     };
     return Polygon;
 }(react_1.default.Component));
-exports.Polygon = Polygon;
 //# sourceMappingURL=Polygon.js.map

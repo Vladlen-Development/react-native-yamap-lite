@@ -14,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -42,7 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Geocoder = void 0;
 var Query_1 = __importDefault(require("./Query"));
 var GeocodingApiError_1 = require("./GeocodingApiError");
-var Geocoder = /** @class */ (function () {
+var Geocoder = exports.Geocoder = /** @class */ (function () {
     function Geocoder() {
     }
     Geocoder.init = function (apiKey) {
@@ -80,7 +80,7 @@ var Geocoder = /** @class */ (function () {
             return __generator(this, function (_a) {
                 query = new Query_1.default({
                     apikey: Geocoder.API_KEY,
-                    geocode: geocode.lat + "," + geocode.lon,
+                    geocode: "".concat(geocode.lat, ",").concat(geocode.lon),
                     sco: 'latlong',
                     kind: kind,
                     format: 'json',
@@ -101,17 +101,18 @@ var Geocoder = /** @class */ (function () {
             skip: skip,
             lang: lang,
             rspn: rspn,
-            ll: ll ? ll.lat + "," + ll.lon : undefined,
-            spn: spn ? spn[0] + "," + spn[1] : undefined,
+            ll: ll ? "".concat(ll.lat, ",").concat(ll.lon) : undefined,
+            spn: spn ? "".concat(spn[0], ",").concat(spn[1]) : undefined,
             bbox: bbox
-                ? bbox[0].lat + "," + bbox[0].lon + "-" + bbox[1].lat + "," + bbox[1].lon
+                ? "".concat(bbox[0].lat, ",").concat(bbox[0].lon, "-").concat(bbox[1].lat, ",").concat(bbox[1].lon)
                 : undefined
         });
         return Geocoder.requestWithQuery(query);
     };
     Geocoder.addressToGeo = function (address) {
         return __awaiter(this, void 0, void 0, function () {
-            var response, obj, _a, lon, lat;
+            var response, obj, lon, lat;
+            var _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, Geocoder.reverseGeocode(address)];
@@ -122,7 +123,7 @@ var Geocoder = /** @class */ (function () {
                             && response.GeoObjectCollection.featureMember.length > 0) {
                             obj = Geocoder.getFirst(response);
                             if (obj.Point) {
-                                _a = obj.Point.pos.split(' ').map(Number), lon = _a[0], lat = _a[1];
+                                lon = (_a = obj.Point.pos.split(' ').map(Number), _a[0]), lat = _a[1];
                                 return [2 /*return*/, { lon: lon, lat: lat }];
                             }
                         }
@@ -153,5 +154,4 @@ var Geocoder = /** @class */ (function () {
     Geocoder.API_KEY = '';
     return Geocoder;
 }());
-exports.Geocoder = Geocoder;
 //# sourceMappingURL=index.js.map

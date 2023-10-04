@@ -33,20 +33,19 @@ exports.Circle = void 0;
 var react_1 = __importDefault(require("react"));
 var react_native_1 = require("react-native");
 var utils_1 = require("../utils");
-var NativeCircleComponent = react_native_1.requireNativeComponent('YamapCircle');
-var Circle = /** @class */ (function (_super) {
+var NativeCircleComponent = (0, react_native_1.requireNativeComponent)('YamapCircle');
+var Circle = exports.Circle = /** @class */ (function (_super) {
     __extends(Circle, _super);
     function Circle() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Circle.prototype.render = function () {
         var props = __assign({}, this.props);
-        utils_1.processColorProps(props, 'fillColor');
-        utils_1.processColorProps(props, 'strokeColor');
+        (0, utils_1.processColorProps)(props, 'fillColor');
+        (0, utils_1.processColorProps)(props, 'strokeColor');
         return react_1.default.createElement(NativeCircleComponent, __assign({}, props));
     };
     Circle.defaultProps = {};
     return Circle;
 }(react_1.default.Component));
-exports.Circle = Circle;
 //# sourceMappingURL=Circle.js.map

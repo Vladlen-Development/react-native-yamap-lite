@@ -34,8 +34,8 @@ var react_1 = __importDefault(require("react"));
 var react_native_1 = require("react-native");
 // @ts-ignore
 var resolveAssetSource_1 = __importDefault(require("react-native/Libraries/Image/resolveAssetSource"));
-var NativeMarkerComponent = react_native_1.requireNativeComponent('YamapMarker');
-var Marker = /** @class */ (function (_super) {
+var NativeMarkerComponent = (0, react_native_1.requireNativeComponent)('YamapMarker');
+var Marker = exports.Marker = /** @class */ (function (_super) {
     __extends(Marker, _super);
     function Marker() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -68,16 +68,16 @@ var Marker = /** @class */ (function (_super) {
         };
     };
     Marker.prototype.resolveImageUri = function (img) {
-        return img ? resolveAssetSource_1.default(img).uri : '';
+        return img ? (0, resolveAssetSource_1.default)(img).uri : '';
     };
     Marker.prototype.getProps = function () {
         return __assign(__assign({}, this.props), { source: this.resolveImageUri(this.props.source) });
     };
     Marker.prototype.animatedMoveTo = function (coords, duration) {
-        react_native_1.UIManager.dispatchViewManagerCommand(react_native_1.findNodeHandle(this), this.getCommand('animatedMoveTo'), [coords, duration]);
+        react_native_1.UIManager.dispatchViewManagerCommand((0, react_native_1.findNodeHandle)(this), this.getCommand('animatedMoveTo'), [coords, duration]);
     };
     Marker.prototype.animatedRotateTo = function (angle, duration) {
-        react_native_1.UIManager.dispatchViewManagerCommand(react_native_1.findNodeHandle(this), this.getCommand('animatedRotateTo'), [angle, duration]);
+        react_native_1.UIManager.dispatchViewManagerCommand((0, react_native_1.findNodeHandle)(this), this.getCommand('animatedRotateTo'), [angle, duration]);
     };
     Marker.prototype.render = function () {
         return (react_1.default.createElement(NativeMarkerComponent, __assign({}, this.getProps(), { key: String(this.state.recreateKey), pointerEvents: 'none' })));
@@ -87,5 +87,4 @@ var Marker = /** @class */ (function (_super) {
     };
     return Marker;
 }(react_1.default.Component));
-exports.Marker = Marker;
 //# sourceMappingURL=Marker.js.map
